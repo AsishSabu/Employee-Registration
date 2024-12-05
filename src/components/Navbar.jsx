@@ -17,8 +17,8 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   const handleLogout = () => {
-    dispatch(logoutUser())
-    toast.success("User Logout Succesfully")
+    dispatch(logoutUser());
+    toast.success("User Logout Succesfully");
   };
   return (
     <>
@@ -28,56 +28,63 @@ const Navbar = () => {
           <h1 className="text-white font-bold px-2">Scita</h1>
         </div>
 
-        <Dropdown show={toggle} onClick={handleToggle}>
-          <Dropdown.Toggle
-            variant="success"
-            id="dropdown-basic "
-            onClick={(toggle) => !toggle}
-          >
-            <div className="flex flex-col">
-              <Avatar />
-              <span className="font-bold text-white">
-                {currentUser && currentUser.name}
-              </span>
-            </div>
-          </Dropdown.Toggle>
-          {toggle && (
-            <Dropdown.Menu className="flex flex-col  bg-gray-100 pt-6 pb-3 mt-1 px-2 rounded-md">
+        <div className="relative">
+        <button
+          onClick={handleToggle}
+          className="items-center focus:outline-none flex flex-col"
+        >
+          <Avatar />
+          <span className="font-bold text-white ml-2">
+            {currentUser?.name || "Guest"}
+          </span>
+        </button>
+        {toggle && (
+          <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="py-1">
               {currentUser ? (
                 <>
-                  {" "}
-                  <Dropdown.Item
-                    onClick={() => navigate("/profile")}
-                    className="border border-b-black px-3 rounded-m"
+                  <div
+                    onClick={() => {
+                      navigate("/profile");
+                      setToggle(false);
+                    }}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                   >
                     Profile
-                  </Dropdown.Item>
-                  <Dropdown.Item
+                  </div>
+                  <div
                     onClick={handleLogout}
-                    className=" px-3 rounded-md"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                   >
                     Logout
-                  </Dropdown.Item>
+                  </div>
                 </>
               ) : (
                 <>
-                  <Dropdown.Item
-                    onClick={() => navigate("/login")}
-                    className="border border-b-black px-3 rounded-m"
+                  <div
+                    onClick={() => {
+                      navigate("/login");
+                      setToggle(false);
+                    }}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                   >
-                    SignIn
-                  </Dropdown.Item>
-                  <Dropdown.Item
-                    onClick={() => navigate("/signup")}
-                    className="px-3 rounded-md"
+                    Sign In
+                  </div>
+                  <div
+                    onClick={() => {
+                      navigate("/signup");
+                      setToggle(false);
+                    }}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
                   >
-                    SignUp
-                  </Dropdown.Item>
+                    Sign Up
+                  </div>
                 </>
               )}
-            </Dropdown.Menu>
-          )}
-        </Dropdown>
+            </div>
+          </div>
+        )}
+      </div>
       </nav>
     </>
   );
