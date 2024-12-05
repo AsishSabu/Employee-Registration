@@ -13,13 +13,20 @@ Employee Registration
 This is a responsive Employee Management System built with React.js and Redux for managing employees, user authentication, and profiles. The system includes signup, login, home, and profile pages, along with form validation and state management.
 
 Features
+-----------
 
-Responsive Design: The application is fully responsive and works seamlessly across different screen sizes.
-Signup Page: Allows users to create an account with input validation for fields like name, age, gender, email, role, password, and confirm password.
-Login Page: Enables users to log in with email and password, and navigate to the signup page.
+Responsive Design:  The application is fully responsive and works seamlessly across different screen sizes.
+
+Signup Page:  Allows users to create an account with input validation for fields like name, age, gender, email, role, password, and confirm password.
+
+Login Page:  Enables users to log in with email and password, and navigate to the signup page.
+
 Profile Page: After login, users can update their profile information.
+
 Navigation Bar: Each page includes a navbar with the logo on the left and the profile button on the right.
+
 Role-based System: Users can select roles such as Developer, Manager, HR, Tester, DevOps, and Sales during signup.
+
 State Management: Redux is used to manage the state and show error messages using modals on validation failure.
 
 Tech Stack
@@ -30,3 +37,20 @@ Redux for state management
 Tailwind CSS for styling
 Bootstrap and Material UI (for components like modals, buttons, etc.)
 React Router for navigation
+
+Run the Project
+---------------
+
+Steps
+Clone the repository:
+
+git clone https://github.com/yourusername/scita-employee-management.git
+cd scita-employee-management
+
+Install Dependencies: Run the following command to install all necessary dependencies:
+npm install
+
+Start the Application: After installing dependencies, run the application:
+npm run dev
+
+
