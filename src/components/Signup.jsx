@@ -44,10 +44,12 @@ const Signup = () => {
       setFormErrors({})
       toast.success("User Registered Successfully");
       dispatch(addUser(formData));
+      dispatch(clearErrors())
       navigate("/login");
     } else {
       toast.error("Form data contain errors");
       setFormErrors(valid);
+      dispatch(setErrors(valid))
     }
   };
   return (
